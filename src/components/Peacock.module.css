@@ -1,0 +1,158 @@
+.peacockContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.peacock {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body {
+  position: relative;
+  z-index: 2;
+}
+
+.head {
+  width: 25px;
+  height: 25px;
+  background: #1d4ed8;
+  border-radius: 50%;
+  position: relative;
+}
+
+.head::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  width: 15px;
+  height: 5px;
+  background: #facc15;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.neck {
+  width: 10px;
+  height: 50px;
+  background: linear-gradient(to bottom, #1d4ed8, #3b82f6);
+  margin-top: -5px;
+}
+
+.torso {
+  width: 60px;
+  height: 80px;
+  background: #3b82f6;
+  border-radius: 50% 50% 40% 40%;
+  margin-top: -5px;
+}
+
+.feathers {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  width: 600px;
+  height: 600px;
+  transform-origin: center bottom;
+  transition: transform 0.8s ease-out;
+}
+
+.feather {
+  position: absolute;
+  bottom: 0;
+  width: 30px;
+  height: 300px;
+  background: linear-gradient(to top, #3b82f6, #2563eb);
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom center;
+  overflow: hidden;
+  transition: transform 0.8s ease-out, scale 0.8s ease-out;
+}
+
+.featherEye {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 40px;
+  background: radial-gradient(circle at center, #14b8a6 30%, #0f766e 40%, #0891b2 60%, #0e7490 70%, #0c4a6e 80%);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 羽の角度を定義 - 左側 */
+.featherLeft {
+  transform: rotate(-18deg);
+}
+
+.featherLeft2 {
+  transform: rotate(-36deg);
+}
+
+.featherLeft3 {
+  transform: rotate(-54deg);
+}
+
+.featherLeft4 {
+  transform: rotate(-72deg);
+}
+
+.featherLeft5 {
+  transform: rotate(-90deg);
+}
+
+/* 羽の角度を定義 - 右側 */
+.featherRight {
+  transform: rotate(18deg);
+}
+
+.featherRight2 {
+  transform: rotate(36deg);
+}
+
+.featherRight3 {
+  transform: rotate(54deg);
+}
+
+.featherRight4 {
+  transform: rotate(72deg);
+}
+
+.featherRight5 {
+  transform: rotate(90deg);
+}
+
+/* スクロールアニメーション */
+@keyframes openFeathers {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--angle));
+  }
+}
+
+@media (max-width: 768px) {
+  .feathers {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .feather {
+    height: 200px;
+  }
+} 
